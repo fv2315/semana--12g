@@ -1,0 +1,6 @@
+{% extends "prestamos/base.html" %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<h1>Acceso institucional UNCP</h1>
+<form method="post">{% csrf_token %}{{ form.as_p }}<button type="submit">Ingresar</button></form>
+{% endblock %}

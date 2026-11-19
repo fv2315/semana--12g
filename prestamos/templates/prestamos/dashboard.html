@@ -1,0 +1,12 @@
+{% extends "prestamos/base.html" %}
+{% block title %}Panel{% endblock %}
+{% block content %}
+<h1>Panel del usuario</h1>
+{% if user.perfil.rol == "docente" %}
+  <p><a href="{% url 'solicitar_prestamo' %}">Solicitar equipo</a> | <a href="{% url 'mis_prestamos' %}">Mis préstamos</a></p>
+{% elif user.perfil.rol == "asistente" %}
+  <p><a href="/admin/prestamos/prestamo/">Gestionar préstamos y devoluciones</a></p>
+{% elif user.perfil.rol == "admin" or user.is_superuser %}
+  <p><a href="/admin/">Abrir Django Admin</a></p>
+{% endif %}
+{% endblock %}

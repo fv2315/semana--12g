@@ -1,0 +1,11 @@
+{% extends "prestamos/base.html" %}
+{% block title %}Catálogo de equipos{% endblock %}
+{% block content %}
+<h1>Catálogo de equipos</h1>
+<table>
+  <tr><th>Código</th><th>Equipo</th><th>Laboratorio</th><th>Estado</th><th>Stock</th></tr>
+  {% for equipo in equipos %}
+  <tr><td>{{ equipo.codigo_patrimonial }}</td><td>{{ equipo.nombre }}</td><td>{{ equipo.laboratorio.nombre }}</td><td>{{ equipo.get_estado_display }}</td><td>{{ equipo.stock }}</td></tr>
+  {% empty %}<tr><td colspan="5">No hay equipos registrados.</td></tr>{% endfor %}
+</table>
+{% endblock %}
